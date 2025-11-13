@@ -1,5 +1,6 @@
 //兼容
 window.URL = window.URL || window.webkitURL;
+
 //获取计算机的设备：摄像头或者录音设备
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
