@@ -29,6 +29,7 @@ model = WhisperForConditionalGeneration.from_pretrained(args.model_path,
                                                         local_files_only=args.local_files_only).half()
 model.eval()
 
+
 # 
 sample, sr = librosa.load(args.audio_path, sr=16000)
 duration = sample.shape[-1]/sr
