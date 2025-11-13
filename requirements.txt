@@ -15,6 +15,7 @@ zhconv>=1.4.2
 tqdm>=4.62.1
 soundcard>=0.4.2
 uvicorn>=0.21.1
+
 fastapi>=0.95.1
 starlette>=0.26.1
 tensorboardX>=2.2
