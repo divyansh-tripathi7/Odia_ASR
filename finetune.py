@@ -68,6 +68,7 @@ test_dataset = CustomDataset(data_list_path=args.test_data,
                              max_duration=args.max_audio_len)
 print(f"len train - {len(train_dataset)} test len - {len(test_dataset)}")
 
+
 # padding
 data_collator = DataCollatorSpeechSeq2SeqWithPadding(processor=processor)
 
@@ -89,6 +90,8 @@ model.config.suppress_tokens = []
 model = prepare_model_for_kbit_training(model)
 # forward，req grad
 model.model.encoder.conv1.register_forward_hook(make_inputs_require_grad)
+
+
 
 print('加载LoRA模块...')
 if args.resume_from_checkpoint:
