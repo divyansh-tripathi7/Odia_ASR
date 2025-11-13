@@ -6,6 +6,8 @@ from faster_whisper import WhisperModel
 
 from utils.utils import print_arguments, add_arguments
 
+
+
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 parser = argparse.ArgumentParser(description=__doc__)
 add_arg = functools.partial(add_arguments, argparser=parser)
