@@ -77,6 +77,7 @@ for step, batch in enumerate(tqdm(eval_dataloader)):
             labels = batch["labels"].cpu().numpy()
             labels = np.where(labels != -100, labels, processor.tokenizer.pad_token_id)
             # 将预测和实际的token转换为文本
+            
             decoded_preds = processor.tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
             decoded_labels = processor.tokenizer.batch_decode(labels, skip_special_tokens=True)
             # 删除标点符号
@@ -89,6 +90,7 @@ for step, batch in enumerate(tqdm(eval_dataloader)):
                 decoded_labels = to_simple(decoded_labels)
             metric.add_batch(predictions=decoded_preds, references=decoded_labels)
     # 删除计算的记录
+    
     del generated_tokens, labels, batch
     gc.collect()
 # 计算评估结果
