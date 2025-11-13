@@ -35,7 +35,7 @@ print_arguments(args)
 # 判断模型路径是否合法
 assert 'openai' == os.path.dirname(args.model_path) or os.path.exists(args.model_path), \
     f"模型文件{args.model_path}不存在，请检查是否已经成功合并模型，或者是否为huggingface存在模型"
-# 获取Whisper的数据处理器，这个包含了特征提取器、tokenizer
+# Whisper、tokenizer
 processor = WhisperProcessor.from_pretrained(args.model_path,
                                              language=args.language,
                                              task=args.task,
@@ -56,7 +56,7 @@ test_dataset = CustomDataset(data_list_path=args.test_data,
                              max_duration=args.max_audio_len)
 print(f"测试数据：{len(test_dataset)}")
 
-# 数据padding器
+# padding
 data_collator = DataCollatorSpeechSeq2SeqWithPadding(processor=processor)
 eval_dataloader = DataLoader(test_dataset, batch_size=args.batch_size,
                              num_workers=args.num_workers, collate_fn=data_collator)
