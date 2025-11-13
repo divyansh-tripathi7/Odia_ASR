@@ -4,7 +4,7 @@
     "params": {
       "new_sample_rates": [8000, 32000, 44100]
     },
-    "prob": 0.0
+    "prob": 0.0 
   },
   {
     "type": "noise",
