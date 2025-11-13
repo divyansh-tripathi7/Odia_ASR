@@ -40,5 +40,5 @@ if __name__ == "__main__":
     # parser = argparse.ArgumentParser()
     # parser.add_argument("model_name", type=str, default="sam2ai/whisper-odia-small-finetune-int8-ct2", help="Name of the model to download.")
     # args = parser.parse_args()
-
+    # default model else use whisper
     download_model("sam2ai/whisper-odia-small-finetune-int8-ct2")
