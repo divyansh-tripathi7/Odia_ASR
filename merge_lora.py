@@ -35,7 +35,7 @@ processor = WhisperProcessor.from_pretrained(peft_config.base_model_name_or_path
 model = model.merge_and_unload()
 model.train(False)
 
-# 
+# saved final model
 save_directory = os.path.join(args.output_dir, f'{os.path.basename(peft_config.base_model_name_or_path)}-finetune')
 os.makedirs(save_directory, exist_ok=True)
 
